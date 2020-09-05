@@ -1,5 +1,5 @@
 {
-  "name": "Front-end-Boilerplate",
+  "name": "front-end-boilerplate",
   "version": "1.0.0",
   "description": "A Front-end boilerplate using Gulp and Sass.",
   "main": "index.js",
