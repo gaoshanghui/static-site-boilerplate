@@ -1,12 +1,13 @@
 {
-  "name": "markup-project",
+  "name": "Front-end-Boilerplate",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Front-end boilerplate using Gulp and Sass.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Gao Shanghui",
+  "private": true,
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.11.5",
