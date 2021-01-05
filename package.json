@@ -1,10 +1,12 @@
 {
   "name": "front-end-boilerplate",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "A Front-end boilerplate using Gulp and Sass.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=development gulp",
+    "build": "NODE_ENV=production gulp"
   },
   "author": "Gao Shanghui",
   "private": true,
@@ -14,6 +16,7 @@
     "@babel/preset-env": "^7.11.5",
     "autoprefixer": "^9.8.6",
     "browser-sync": "^2.26.12",
+    "browserify": "^17.0.0",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",

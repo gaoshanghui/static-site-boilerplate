@@ -1,3 +1,7 @@
-let hello = 'Hello world!';
+const scriptStart = 'Script has been imported. Happy coding!';
 
-console.log(hello);
+const greeting = (inputText) => {
+  console.log(scriptStart); 
+}
+
+greeting();

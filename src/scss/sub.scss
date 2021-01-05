@@ -1,0 +1,11 @@
+// Top-level SCSS files are compiled into separated CSS files.
+
+@import "variables";
+
+h3 {
+  color: $green;
+}
+
+p {
+  color: $black;
+}
