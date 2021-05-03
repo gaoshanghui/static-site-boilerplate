@@ -1,13 +1,13 @@
-// Clean task: Remove pre-existing content from dist folder
-
+// ------------
+// Clean Task
+// Remove pre-existing files and directories from the dist directory
+// ------------
 const del = require('del');
 
-function cleanTask(done) {
-  del.sync([
-    'dist'
-  ]);
-  
+
+const clean = (done) => {
+  del.sync(['dist/**/*']);
   return done();
 };
 
-exports.cleanTask = cleanTask;
+exports.clean = clean;
