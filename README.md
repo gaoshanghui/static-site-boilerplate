@@ -1,2 +1,2 @@
-# Front-end Boilerplate
-A Front-end boilerplate using Gulp.
+# gulp boilerplate
+A development environment bases on the [gulpjs](https://gulpjs.com/).
