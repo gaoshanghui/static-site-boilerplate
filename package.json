@@ -1,7 +1,7 @@
 {
-  "name": "gulp-boilerplate",
-  "version": "1.2.0",
-  "description": "A Front-end boilerplate using Gulp and Sass.",
+  "name": "static-site-boilerplate",
+  "version": "1.0.0",
+  "description": "A static site boilerplate bases on the gulpjs.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
