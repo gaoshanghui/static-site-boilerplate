@@ -1,2 +1,2 @@
-# gulp boilerplate
-A development environment bases on the [gulpjs](https://gulpjs.com/).
+# static site boilerplate
+A static site boilerplate bases on the [gulpjs](https://gulpjs.com/).
