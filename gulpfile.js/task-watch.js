@@ -1,31 +1,27 @@
-// Watch task
-
 // Import specific gulp API functions
 const { watch, series, parallel } = require('gulp');
 
 // Import paths
 const { paths } = require('./paths');
-const { settings } = require('./settings');
 
 // Import tasks
-const { cleanTask } = require('./task-clean');
-const { copyTask } = require('./task-copy');
-const { scssTask } = require('./task-sass');
-const { jsTask } = require('./task-js');
-const { imageTask } = require('./task-image');
+const taskClean = require('./task-clean');
+const taskCopy = require('./task-copy');
+
+const { buildCSS } = require('./task-buildcss');
+const { buildJS } = require('./task-buildjs');
+
 const { reloadTask } = require('./task-browser');
 
-
-function watchTask(done) {
-  if (settings.watchTask === 'production') {
-    console.log("-----------------------------------\nBuild Complete.\nAll files are ready for production.\n-----------------------------------");
-    return done();
-  };
-
-  watch([paths.htmlPath, paths.scssPath, paths.jsPath, paths.imgPath],
+function watchTask() {
+  watch(
+    // Files that been watching
+    [paths.htmlPath, paths.scssPath, paths.jsFiles, paths.imgPath],
+    // Clean the dist folder first, then generate new files.
     series(
-      cleanTask,
-      parallel(copyTask, scssTask, jsTask, imageTask),
+      taskClean.clean,
+      parallel(buildCSS, buildJS),
+      taskCopy.copyFiles,
       reloadTask
     )
   );

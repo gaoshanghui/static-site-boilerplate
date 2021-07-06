@@ -1,11 +1,12 @@
-// Copy task: Copy html and images files into dist folder.
+// Task: copy
+// Copy HTML and assets files into the dist folder.
 
 const { paths } = require('./paths');
 const { src, dest } = require('gulp');
 
-function copyTask() {
+function copyFiles() {
   return src([paths.imgPath, paths.htmlPath], { base: './src' })
     .pipe(dest('dist'))
 }
 
-exports.copyTask = copyTask;
+exports.copyFiles = copyFiles;

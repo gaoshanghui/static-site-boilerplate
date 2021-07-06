@@ -1,12 +1,13 @@
-// ------------
-// Clean Task
-// Remove pre-existing files and directories from the dist directory
-// ------------
+// Task: clean
+// Delete everything in the dist folder
+
 const del = require('del');
 
-
-const clean = (done) => {
-  del.sync(['dist/**/*']);
+function clean(done) {
+  del.sync([
+    'dist'
+  ]);
+  
   return done();
 };
 

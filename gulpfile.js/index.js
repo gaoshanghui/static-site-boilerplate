@@ -1,25 +1,22 @@
-// Gulp
-const { task } = require('gulp');
-const gulp = require('gulp')
+// Import gulp API functions
+const { series, parallel } = require('gulp');
 
-// Tasks
+// Import tasks
 const taskClean = require('./task-clean');
-const taskBundleScripts = require('./task-bundle-scripts');
+const taskCopy = require('./task-copy');
 
-// const { copyTask } = require('./task-copy');
-// const { serverTask } = require('./task-browser');
-// const { scssTask } = require('./task-sass');
+const { buildCSS } = require('./task-buildcss');
+const { buildJS } = require('./task-buildjs');
 
-// const { imageTask } = require('./task-image');
-// const { watchTask } = require('./task-watch');
-
-
+const { serverTask } = require('./task-browser');
+const { watchTask } = require('./task-watch');
 
 // Export the default Gulp task so it can be run.
-exports.default = gulp.series(
+exports.default = series(
+  // clean the dist folder first, then generate new files.
   taskClean.clean,
-  taskBundleScripts.bundleScripts
-  // gulp.parallel(copyTask),
-  // serverTask,
-  // watchTask
+  parallel(buildCSS, buildJS),
+  taskCopy.copyFiles,
+  serverTask,
+  watchTask
 );

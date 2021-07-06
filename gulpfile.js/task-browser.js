@@ -9,8 +9,6 @@ function reloadTask(done) {
 }
 
 function serverTask(done) {
-  if (settings.broswerTask === 'production') return done();
-
   browserSync.init({
     server: {
       baseDir: "./dist/",

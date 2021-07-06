@@ -3,7 +3,6 @@
 let status = process.env.NODE_ENV; // value: "production" or "development"
 
 let settings = {
-  imageTask: status,
   broswerTask: status,
   watchTask: status
 };
