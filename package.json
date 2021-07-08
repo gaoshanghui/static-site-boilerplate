@@ -1,37 +1,40 @@
 {
   "name": "static-site-boilerplate",
   "version": "1.0.0",
-  "description": "A static site boilerplate bases on the gulpjs.",
+  "description": "Static site boilerplate based on the gulpjs.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "gulp"
+    "start": "cross-env NODE_ENV=development gulp",
+    "build": "cross-env NODE_ENV=production gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Gao Shanghui",
   "private": true,
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.11.5",
-    "@babel/preset-env": "^7.11.5",
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
     "autoprefixer": "^9.8.6",
-    "babelify": "^10.0.0",
+    "babel-loader": "^8.2.2",
     "browser-sync": "^2.27.4",
-    "browserify": "^17.0.0",
+    "cross-env": "^7.0.3",
     "cssnano": "^5.0.6",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0-beta.2",
     "gulp-postcss": "^9.0.0",
     "gulp-sass": "^5.0.0",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-uglify": "^3.0.2",
     "postcss": "^8.3.5",
     "sass": "^1.35.1",
-    "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0",
-    "watchify": "^4.0.0"
+    "webpack": "^5.43.0",
+    "webpack-stream": "^6.1.2"
   },
   "dependencies": {
     "lodash": "^4.17.21"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ]
 }

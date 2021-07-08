@@ -1,5 +1,13 @@
-@import "variables";
-@import "elements";
-@import "components";
-@import "layouts";
-@import "pages";
+// Top-level SCSS files are compiled into separated CSS files.
+@import "./variables";
+@import "./components";
+@import "./pages";
+
+
+html, body {
+  font-family: $primary-font-family;
+  font-size: 16px;
+  color: $black;
+  margin: 0;
+  padding: 0;
+}
