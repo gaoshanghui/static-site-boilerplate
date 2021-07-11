@@ -26,10 +26,10 @@ const browserSync = require('browser-sync').create();
 // ==================================================
 
 const path = {
-  html: 'src/**/*.html',
-  script: 'src/js',
-  image: 'src/images/**/*',
-  scss: 'src/scss/**/*.scss',
+  html: './src/**/*.html',
+  script: './src/js',
+  image: './src/images/**/*',
+  scss: './src/scss/**/*.scss',
   output: 'build',
 }
 
@@ -70,7 +70,7 @@ function buildCSS() {
 // build JS bundle with webpack-stream and save it into the build directory.
 // For more detail about webpack-stream -> https://github.com/shama/webpack-stream
 function buildJS() {
-  return src(`${path.script}/index.js`)
+  return src(`${path.script}/main.js`)
     .pipe(
       // Setting webpack with configuration
       gulpWebpack(
@@ -78,8 +78,12 @@ function buildJS() {
           mode: process.env.NODE_ENV,
           // Only generate source-map in the development environment.
           devtool: process.env.NODE_ENV === 'development' ? 'inline-source-map' : false,
+          entry: {
+            main: `${path.script}/main.js`,
+            // another: './src/js/another.js', If you need multiple entry points.
+          },
           output: {
-            filename: 'bundle.js',
+            filename: '[name].js',
           },
           module: {
             rules: [
