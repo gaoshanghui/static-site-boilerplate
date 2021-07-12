@@ -1,0 +1,16 @@
+/* Basic settings */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: $primary-font-family;
+  font-size: 16px;
+  color: $black;
+  margin: 0;
+}

@@ -13,9 +13,13 @@
 </head>
 
 <body>
-  <div id="main" class="introduction">
-    <h1 class="introduction__headline">Static Site Boilerplate</h1>
-    <div class="introduction__version-info"><span>Version: 0.1.0 beta</span></div>
+  <header class="GlobalHeader">
+    <nav class="GlobalNavigation">
+      <h1 class="GlobalNavigation__headline">Static Site Boilerplate</h1>
+      <div class="GlobalNavigation__version-info"><span>Version: 0.1.0 beta</span></div>
+    </nav>
+  </header>
+  <div class="introduction">
     <article class="introduction__article article">
       <h2 class="article__headline">Quick Start</h2>
       <ol class="article__order-list">
@@ -39,21 +43,27 @@
       <p class="special-message">
         <i>*The goal is to build a boilerplate that has more features with high build performance.</i>
       </p>
-      <div class="article__image-container">
+      <p class="special-message">
+        <i>*The boilerplate now support using React(beta 2021.07.12).</i>
+      </p>
+      <!-- <div class="article__image-container">
         <img class="article__image" src="./images/sample/image.jpg" alt="Studio shot of the monstera plant leaf" loading="lazy"/>
-      </div>
+      </div> -->
     </article>
+    
+    <!-- React application root container -->
+    <div id="react-app-root"></div>
+
   </div>
 
   <!-- External JavaScript Libries -->
+  <!-- jQuery -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
     integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"
     integrity="sha512-2fk3Q4NXPYAqIha0glLZ2nluueK43aNoxvijPf53+DgL7UW9mkN+uXc1aEmnZdkkZVvtJZltpRt+JqTWc3TS3Q=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"
-    integrity="sha512-BrvVYNhKh6yST24E5DY/LopLO5d+8KYmIXyrpBIJ2PK+CyyJw/cLSG/BfJomWLC1IblNrmiJWGlrGueKLd/Ekw=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- Main JavaScript File -->
   <script src="./js/main.js"></script>
