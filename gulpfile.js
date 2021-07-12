@@ -28,10 +28,10 @@ const browserSync = require('browser-sync').create();
 const path = {
   html: './src/**/*.html',
   script: './src/js',
-  image: './src/images/**/*',
+  assets: './src/assets/**/*',
   scss: './src/scss/**/*.scss',
   output: 'build',
-}
+};
 
 // ==================================================
 // Define Tasks
@@ -48,9 +48,9 @@ function removeFiles(done) {
 // Task: copy files
 // Copy files into the build directory.
 function copyFiles() {
-  return src([path.image, path.html], { base: './src' })
+  return src([path.assets, path.html], { base: './src' })
     .pipe(dest(path.output));
-}
+};
 
 // Task: build CSS
 // Build the CSS file and save it into the build directory.
@@ -64,7 +64,7 @@ function buildCSS() {
     .pipe(gulpPostcss(postcssPlugins)) // Add prefix and minify CSS
     .pipe(gulpSourcemaps.write('.')) // write sourcemaps file in current directory
     .pipe(dest(`${path.output}/css`)) // put final CSS in dist folder
-}
+};
 
 // Task: build JavaScript
 // build JS bundle with webpack-stream and save it into the build directory.
@@ -83,7 +83,7 @@ function buildJS() {
             // another: './src/js/another.js', If you need multiple entry points.
           },
           output: {
-            filename: '[name].js',
+            filename: '[name].bundle.js',
           },
           module: {
             rules: [
@@ -104,7 +104,7 @@ function buildJS() {
       )
     )
     .pipe(dest(`${path.output}/js`))
-}
+};
 
 // Task: create a server
 // Create a development server to serve files in the build directory
@@ -121,20 +121,20 @@ function staticServer(done) {
   });
 
   return done();
-}
+};
 
 // Task: reload the browser
 // For more detail about the browser-sync -> https://browsersync.io/docs/gulp
 function reloadBrowser(done) {
   browserSync.reload();
   return done();
-}
+};
 
 // Task: watching files change
 function watchingFiles() {
   watch(
     // Files that been watching
-    [path.html, path.scss, path.image, path.script],
+    [path.html, path.scss, path.assets, path.script],
 
     // Adjust the delay duration to avoid starting a task too early 
     // when many files are being changed at once - like find-and-replace.
@@ -148,7 +148,7 @@ function watchingFiles() {
       reloadBrowser,
     )
   );
-}
+};
 
 
 // ==================================================
@@ -165,7 +165,7 @@ if (process.env.NODE_ENV === 'development') {
     staticServer,
     watchingFiles
   );
-}
+};
 
 if (process.env.NODE_ENV === 'production') {
   exports.default = series(
@@ -173,4 +173,4 @@ if (process.env.NODE_ENV === 'production') {
     parallel(buildCSS, buildJS),
     copyFiles,
   );
-}
+};
