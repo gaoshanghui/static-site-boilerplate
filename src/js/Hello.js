@@ -6,7 +6,10 @@ import React from 'react';
 
 const Hello = () => {
   return (
-    <div>Hello, This is React!</div>
+    <div className="Hello">
+      <h2 className="Hello__headline">The boilerplate now{'\n'}support using React!</h2>
+      <img className="Hello__image" src="./assets/images/plant-leaf.jpg" alt="plant leaf" />
+    </div>
   )
 }
 

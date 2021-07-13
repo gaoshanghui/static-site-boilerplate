@@ -76,7 +76,7 @@ function buildJS() {
       gulpWebpack(
         {
           mode: process.env.NODE_ENV,
-          // Only generate source-map in the development environment.
+          // Only generate source-map in the development mode.
           devtool: process.env.NODE_ENV === 'development' ? 'inline-source-map' : false,
           entry: {
             main: `${path.script}/main.js`,
@@ -100,14 +100,15 @@ function buildJS() {
             ]
           },
         },
+        // Using the latest webpack
         webpack
       )
     )
     .pipe(dest(`${path.output}/js`))
 };
 
-// Task: create a server
-// Create a development server to serve files in the build directory
+// Task: create a development server
+// Create a development server to serve files that in the build directory
 // For more detail about the browser-sync -> https://browsersync.io/docs/gulp
 function staticServer(done) {
   browserSync.init({
@@ -150,6 +151,27 @@ function watchingFiles() {
   );
 };
 
+// Task: send message
+// Print the message if successfully compiled.
+function sendMessage(done) {
+  const message = `
+--------------------------------------------------
+
+Compiled successfully.
+
+The project was built assuming it is hosted at ./.
+The build folder is ready to be deployed.
+
+Have a nice day! 
+And happy hacking! 🌈🌟🎉🦄
+
+--------------------------------------------------
+`
+
+  console.log(message);
+  return done();
+}
+
 
 // ==================================================
 // Export default task so Gulp can be run.
@@ -172,5 +194,6 @@ if (process.env.NODE_ENV === 'production') {
     removeFiles,
     parallel(buildCSS, buildJS),
     copyFiles,
+    sendMessage,
   );
 };
