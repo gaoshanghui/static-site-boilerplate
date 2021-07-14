@@ -1,4 +1,7 @@
-@import "./variables";
-@import "./settings";
-@import "./components";
-@import "./pages";
+// The underscore lets Sass know that the file is only a partial file 
+// and that it should not be generated into a CSS file. 
+// Sass partials are used with the @use rule.
+
+@use "./settings";
+@use "./components";
+@use "./pages";

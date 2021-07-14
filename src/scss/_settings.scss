@@ -1,3 +1,5 @@
+@use './variables';
+
 /* Basic settings */
 * {
   box-sizing: border-box;
@@ -9,8 +11,8 @@ html {
 }
 
 body {
-  font-family: $primary-font-family;
+  font-family: variables.$primary-font-family;
   font-size: 16px;
-  color: $black;
+  color: variables.$black;
   margin: 0;
 }

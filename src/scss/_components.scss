@@ -1,11 +1,13 @@
+@use './variables';
+
 // Components
 .GlobalNavigation {
   padding: 0 16px;
 
   &__headline {
-    @include headline-large;
+    @include variables.headline-large;
     text-align: center;
-    color: $blue-800;
+    color: variables.$blue-800;
   }
 
   &__version-info {
@@ -26,7 +28,7 @@
     top: 35%;
     left: 15%;
     font-size: 40px;
-    color: $gray-50;
+    color: variables.$gray-50;
     white-space: pre-line;
     text-shadow: 2px 3px 3px rgba(51 51 51 / 16%);
   }
@@ -43,8 +45,8 @@
   margin: 24px auto;
 
   &__headline {
-    @include headline-normal;
-    color: $blue-800;
+    @include variables.headline-normal;
+    color: variables.$blue-800;
     margin: 1rem 0;
   }
 
@@ -56,15 +58,15 @@
     width: 100%;
     max-height: 480px;
     object-fit: cover;
-    border: 1px solid $gray-600;
+    border: 1px solid variables.$gray-600;
   }
 
   &__list-item {
-    @include body-normal;
+    @include variables.body-normal;
   }
 }
 
 .special-message {
-  color: $green-600;
+  color: variables.$green-600;
   margin: 8px 0;
 }

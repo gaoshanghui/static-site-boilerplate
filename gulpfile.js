@@ -60,7 +60,7 @@ function buildCSS() {
 
   return src(path.scss)
     .pipe(gulpSourcemaps.init()) // initialize sourcemaps first
-    .pipe(gulpSass()).on("error", gulpSass.logError) // compile SCSS to CSS
+    .pipe(gulpSass().on('error', gulpSass.logError)) // compile SCSS to CSS
     .pipe(gulpPostcss(postcssPlugins)) // Add prefix and minify CSS
     .pipe(gulpSourcemaps.write('.')) // write sourcemaps file in current directory
     .pipe(dest(`${path.output}/css`)) // put final CSS in dist folder
