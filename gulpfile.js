@@ -119,6 +119,7 @@ function staticServer(done) {
     notify: false,
     ui: false,
     open: false,
+    port: 3000,
   });
 
   return done();
@@ -155,17 +156,17 @@ function watchingFiles() {
 // Print the message if successfully compiled.
 function sendMessage(done) {
   const message = `
---------------------------------------------------
+  --------------------------------------------------
 
-Compiled successfully.
+  Compiled successfully.
 
-The project was built assuming it is hosted at ./.
-The build folder is ready to be deployed.
+  The project was built assuming it is hosted at ./.
+  The build folder is ready to be deployed.
 
-Have a nice day! 
-And happy hacking! 🌈🌟🎉🦄
+  Have a nice day! 
+  And happy hacking! 🌈🌟🎉🦄
 
---------------------------------------------------
+  --------------------------------------------------
 `
 
   console.log(message);
