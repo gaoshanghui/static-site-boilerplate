@@ -1,7 +1,7 @@
 @use "./variables";
 
 /* Demo Page */
-.Presentation {
+.intro-hero {
   color: variables.$gray-50;
   background: variables.$cool-gray900;
   height: 100vh;
@@ -9,9 +9,39 @@
   padding: 0 64px;
   position: relative;
 
+  &__animation-container {
+    position: absolute;
+    top: 64px;
+    left: calc(50% - 200px);
+    // left: 35%;
+  }
+}
+
+.intro-web-animation {
+  &__device-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
   &__source-code-container {
     position: absolute;
-    top: 60px;
-    left: 0px;
+    top: 162px;
+    left: -360px;
+  }
+
+  &__basic-shapes-container {
+    position: absolute;
+    top: 73px;
+    left: -226px;
+    width: 268px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__headline-container {
+    position: absolute;
+    top: 68px;
+    left: 214px;
   }
 }
