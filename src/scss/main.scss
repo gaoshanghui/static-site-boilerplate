@@ -2,6 +2,9 @@
 // and that it should not be generated into a CSS file. 
 // Sass partials are used with the @use rule.
 
+@use "./variables";
 @use "./settings";
-@use "./components";
-@use "./pages";
+
+h1 {
+  @include variables.headline-normal;
+}
