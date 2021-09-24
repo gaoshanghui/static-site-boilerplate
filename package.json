@@ -24,6 +24,7 @@
     "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-postcss": "^9.0.0",
+    "gulp-pug": "^5.0.0",
     "gulp-sass": "^5.0.0",
     "gulp-sourcemaps": "^2.6.5",
     "postcss": "^8.3.5",
