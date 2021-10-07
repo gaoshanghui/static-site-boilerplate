@@ -4,8 +4,9 @@ const { series, parallel, src, dest, watch } = require('gulp');
 // Packages for the clean task
 const del = require('del');
 
-// Packages fot the build pug task
-const pug = require('gulp-pug');
+// Packages for the ejs task;
+const ejs = require('gulp-ejs');
+const rename = require('gulp-rename');
 
 // Packages for the build CSS task
 const gulpSourcemaps = require('gulp-sourcemaps');
@@ -29,9 +30,9 @@ const browserSync = require('browser-sync').create();
 
 const path = {
   html: './src/**/*.html',
+  ejs: './src/**/*.ejs',
   script: './src/js',
   assets: './src/assets/**/*',
-  pug: './src/**/*.pug',
   scss: './src/scss/**/*.scss',
   output: 'build',
 };
@@ -56,14 +57,12 @@ function copyFiles() {
   );
 }
 
-// Task: build pug
-function buildPug() {
-  return src(path.pug)
-    .pipe(
-      pug({
-        pretty: true,
-      })
-    )
+// Task: build HTML
+// Build HTML file and save it into the build directory.
+function buildHTML() {
+  return src([path.ejs, '!./src/**/_*.ejs'])
+    .pipe(ejs())
+    .pipe(rename({ extname: '.html' }))
     .pipe(dest(path.output));
 }
 
@@ -154,7 +153,7 @@ function reloadBrowser(done) {
 function watchingFiles() {
   watch(
     // Files that been watching
-    [path.html, path.pug, path.scss, path.assets, path.script],
+    [path.html, path.ejs, path.scss, path.assets, path.script],
 
     // Adjust the delay duration to avoid starting a task too early
     // when many files are being changed at once - like find-and-replace.
@@ -163,7 +162,7 @@ function watchingFiles() {
     // Clean the build folder first, then generate new files.
     series(
       removeFiles,
-      parallel(buildPug, buildCSS, buildJS),
+      parallel(buildHTML, buildCSS, buildJS),
       copyFiles,
       reloadBrowser
     )
@@ -200,7 +199,7 @@ function sendMessage(done) {
 if (process.env.NODE_ENV === 'development') {
   exports.default = series(
     removeFiles,
-    parallel(buildPug, buildCSS, buildJS),
+    parallel(buildHTML, buildCSS, buildJS),
     copyFiles,
     staticServer,
     watchingFiles
@@ -210,7 +209,7 @@ if (process.env.NODE_ENV === 'development') {
 if (process.env.NODE_ENV === 'production') {
   exports.default = series(
     removeFiles,
-    parallel(buildPug, buildCSS, buildJS),
+    parallel(buildHTML, buildCSS, buildJS),
     copyFiles,
     sendMessage
   );

@@ -1,10 +1,27 @@
-// The underscore lets Sass know that the file is only a partial file 
-// and that it should not be generated into a CSS file. 
+// The underscore lets Sass know that the file is only a partial file
+// and that it should not be generated into a CSS file.
 // Sass partials are used with the @use rule.
 
-@use "./variables";
-@use "./settings";
+/* base */
+@use './base/modern-normalize';
+@use './base/typography';
+@use './base/global';
 
-h1 {
-  @include variables.headline-normal;
-}
+/* components */
+// Components can be anything, as long as they:
+// 1. do one thing and one thing only;
+// 2. are re-usable and re-used across the project;
+// 3. are independent.
+// You should avoid referencing (i.e. @import-ing) component files from other component files.
+// @use './components/c-button';
+
+/* pages */
+// page-specific styles:
+// Styles specific to individual pages sit here.
+// You can also put them in a pages/ folder, in a file named after the page.
+// For example, a _p-home.scss file in pages/.
+@use './pages/p-home';
+
+/* venders */
+// the CSS files from external libraries and frameworks.
+// For example: @use './venders/aos';
