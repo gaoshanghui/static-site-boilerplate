@@ -4,9 +4,10 @@ const { series, parallel, src, dest, watch } = require('gulp');
 // Packages for the clean task
 const del = require('del');
 
-// Packages for the ejs task;
+// Packages for the build html task;
 const ejs = require('gulp-ejs');
 const rename = require('gulp-rename');
+const htmlbeautify = require('gulp-html-beautify');
 
 // Packages for the build CSS task
 const gulpSourcemaps = require('gulp-sourcemaps');
@@ -60,9 +61,15 @@ function copyFiles() {
 // Task: build HTML
 // Build HTML file and save it into the build directory.
 function buildHTML() {
+  const htmlbeautifyOptions = {
+    indent_size: 2,
+    indent_char: ' ',
+    eol: '\n',
+  };
   return src([path.ejs, '!./src/**/_*.ejs'])
     .pipe(ejs())
     .pipe(rename({ extname: '.html' }))
+    .pipe(htmlbeautify(htmlbeautifyOptions))
     .pipe(dest(path.output));
 }
 
@@ -88,37 +95,8 @@ function buildJS() {
     .pipe(
       // Setting webpack with configuration
       gulpWebpack(
-        {
-          mode: process.env.NODE_ENV,
-          // Only generate source-map in the development mode.
-          devtool:
-            process.env.NODE_ENV === 'development'
-              ? 'inline-source-map'
-              : false,
-          entry: {
-            main: `${path.script}/main.js`,
-            // another: './src/js/another.js', If you need multiple entry points.
-          },
-          output: {
-            filename: '[name].bundle.js',
-          },
-          module: {
-            rules: [
-              {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: {
-                  loader: 'babel-loader',
-                  options: {
-                    presets: ['@babel/preset-env', '@babel/preset-react'],
-                  },
-                },
-              },
-            ],
-          },
-        },
-        // Using the latest webpack
-        webpack
+        require('./webpack.config.js'),
+        webpack // Using the latest webpack
       )
     )
     .pipe(dest(`${path.output}/js`));
@@ -132,6 +110,9 @@ function staticServer(done) {
     server: {
       baseDir: path.output,
       index: 'index.html',
+      serveStaticOptions: {
+        extensions: ['html'],
+      },
     },
     notify: false,
     ui: false,
@@ -152,7 +133,7 @@ function reloadBrowser(done) {
 // Task: watching files change
 function watchingFiles() {
   watch(
-    // Files that been watching
+    // Paths(Files) that have been watching
     [path.html, path.ejs, path.scss, path.assets, path.script],
 
     // Adjust the delay duration to avoid starting a task too early

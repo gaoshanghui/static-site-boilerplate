@@ -62,12 +62,12 @@ When importing images into a .scss file, the file path must be specified relativ
 background: url('../images/background.png');
 ```
 
-It is recommended to use [**Dart Sass**](https://sass-lang.com/dart-sass) to create this environment.
+[**Dart Sass**](https://sass-lang.com/dart-sass) is recommended.
 
 ### JavaScript
 
 This environment initially contains one JavaScript file in the `src/js/` directory:
-`main.js` - Since this environment uses Webpack to bundle JavaScript, `main.js` is an **entry point**. It means that when you remove it or use another name, you should also change the environment configuration file (gulpfile.js) to match.
+`main.js` - Since this environment uses Webpack to bundle JavaScript, `main.js` is an **entry point**. It means that when you remove it or use another name, you should also change the environment configuration file (webpack.config.js) to match.
 
 ### Images and other files
 
