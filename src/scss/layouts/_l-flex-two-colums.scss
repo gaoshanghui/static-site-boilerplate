@@ -1,0 +1,45 @@
+@use './../abstracts/mixins';
+
+$gap: 32px;
+
+.l-flex-two-colums {
+  display: flex;
+  margin: calc(-1 * $gap) 0 0 calc(-1 * $gap);
+  width: calc(100% - $gap);
+  flex-wrap: wrap;
+
+  @supports (gap: 1px) {
+    width: 100%;
+    margin: 0;
+    gap: $gap;
+  }
+
+  &--reverse {
+    flex-direction: row-reverse;
+  }
+
+  &__item {
+    flex-grow: 1;
+    width: calc(50% - $gap);
+
+    @include mixins.respond(x-small) {
+      width: 100%;
+    }
+
+    &--narrow {
+      width: calc(20% - $gap);
+
+      @include mixins.respond(x-small) {
+        width: 100%;
+      }
+    }
+
+    &--wide {
+      width: calc(80% - $gap);
+
+      @include mixins.respond(x-small) {
+        width: 100%;
+      }
+    }
+  }
+}

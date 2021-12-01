@@ -1,9 +1,11 @@
-// The underscore lets Sass know that the file is only a partial file
-// and that it should not be generated into a CSS file.
-// Sass partials are used with the @use rule.
+/* abstract */
+// The abstracts folder gathers all Sass tools and helpers used across the project.
+// Every global variable, function, mixin and placeholder should be put in here.
+// The rule of thumb for this folder is that
+// it should not output a single line of CSS when compiled on its own.
 
 /* base */
-@use './base/modern-normalize';
+@use './base/normalize';
 @use './base/typography';
 @use './base/global';
 
@@ -13,7 +15,17 @@
 // 2. are re-usable and re-used across the project;
 // 3. are independent.
 // You should avoid referencing (i.e. @import-ing) component files from other component files.
-// @use './components/c-button';
+@use './components/c-button-primary';
+
+/* Layout */
+// This folder could have stylesheets for the main parts of the site
+// (header, footer, navigation, sidebar…), the grid system
+// or even CSS styles for all the forms.
+@use './layouts/l-header';
+@use './layouts/l-footer';
+@use './layouts/l-section';
+@use './layouts/l-flex-two-colums';
+@use './layouts/l-flex-three-colums';
 
 /* pages */
 // page-specific styles:
@@ -24,4 +36,4 @@
 
 /* venders */
 // the CSS files from external libraries and frameworks.
-// For example: @use './venders/aos';
+// For example, @use './venders/aos';

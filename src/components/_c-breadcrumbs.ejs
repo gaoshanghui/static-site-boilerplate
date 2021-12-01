@@ -1,0 +1,7 @@
+<div class="c-breadcrumbs">
+  <ul class='c-breadcrumbs__list'>
+    <% items.forEach(item => { %>
+      <li class="c-breadcrumbs__item"><a href="<%= item.url %>"><%= item.name %></a></li>
+    <% }); %>
+  </ul>
+</div>

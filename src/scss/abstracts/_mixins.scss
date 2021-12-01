@@ -1,0 +1,33 @@
+@use './breakpoints';
+
+// Background image - Position center
+@mixin bgImage($imgUrl) {
+  background-image: url($imgUrl);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+// Media Queries
+@mixin respond($breakpoint) {
+  @if $breakpoint==large {
+    @media only screen and (max-width: breakpoints.$large) {
+      @content;
+    }
+  }
+  @if $breakpoint==medium {
+    @media only screen and (max-width: breakpoints.$medium) {
+      @content;
+    }
+  }
+  @if $breakpoint==small {
+    @media only screen and (max-width: breakpoints.$small) {
+      @content;
+    }
+  }
+  @if $breakpoint==x-small {
+    @media only screen and (max-width: breakpoints.$extra-small) {
+      @content;
+    }
+  }
+}

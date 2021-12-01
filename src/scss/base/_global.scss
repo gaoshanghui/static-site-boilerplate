@@ -1,4 +1,26 @@
+@use './../abstracts/mixins';
+
 a {
   color: inherit;
   text-decoration: none;
+}
+
+img {
+  display: block;
+}
+
+// Adjust anchor links position when using a fixed header.
+$header-height-default: 0px;
+$header-height-small: 0px;
+
+:target::before {
+  content: '';
+  display: block;
+  height: $header-height-default; /* fixed header height */
+  margin: -$header-height-default 0 0; /* negative fixed header height */
+
+  @include mixins.respond(small) {
+    height: $header-height-small; /* fixed header height*/
+    margin: -$header-height-small 0 0; /* negative fixed header height */
+  }
 }

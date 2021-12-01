@@ -1,0 +1,26 @@
+$white: #fff;
+$green: #02996e;
+$green-darker: #0f7558;
+
+.c-button-primary {
+  display: inline-flex;
+  width: fit-content;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 24px;
+  color: $white;
+  background: $green;
+  border-radius: 8px;
+  transition: 0.3s all;
+  appearance: none;
+  outline: none;
+  border: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  &:hover {
+    background: #0f7558;
+  }
+}

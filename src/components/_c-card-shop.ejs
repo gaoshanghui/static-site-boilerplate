@@ -1,0 +1,28 @@
+<div data-aos="fade-up" class="c-card-shop">
+  <img src="<%= imgSrc %>" alt="<%= title %>" class="c-card-shop__img" />
+  <p class="c-card-shop__title"><%= title %></p>
+  <p class="c-card-shop__address"><%= address %></p>
+  <table class="c-card-shop__table">
+    <tbody>
+      <tr class="c-card-shop__tr">
+        <th class="c-card-shop__th">開局</th>
+        <td class="c-card-shop__td"><%= founding %></td>
+      </tr>
+      <tr class="c-card-shop__tr">
+        <th class="c-card-shop__th">TEL</th>
+        <td class="c-card-shop__td"><%= tel %></td>
+      </tr>
+      <tr class="c-card-shop__tr">
+        <th class="c-card-shop__th">営業</th>
+        <td class="c-card-shop__td"><%= open %></td>
+      </tr>
+      <tr class="c-card-shop__tr">
+        <th class="c-card-shop__th">休み</th>
+        <td class="c-card-shop__td"><%= rest %></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="c-card-shop__map-container">
+    <iframe class="c-card-shop__map" src="<%= mapSrc %>" style="border: 0" allowfullscreen="" loading="lazy"> </iframe>
+  </div>
+</div>

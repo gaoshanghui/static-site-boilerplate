@@ -1,51 +1,62 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta
-      name="description"
-      content="Web site created using static-site-boilerplate"
-    />
-    <title>Home</title>
-    <link
-      rel="shortcut icon"
-      href="./assets/favicon/favicon.ico"
-      type="image/x-icon"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="site description" />
+    <title>Home | Static Site Generator</title>
+    <link rel="shortcut icon" href="./assets/favicon/favicon.ico" type="image/x-icon" />
     <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon" />
     <!-- Web Fonts -->
-    <!-- Add Google Fonts, Adobe Fonts at here. -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
     <!-- Main CSS File -->
     <link rel="stylesheet" href="./css/main.css" />
   </head>
-
   <body>
-    <!--
-      This HTML file is a template.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      To begin the development, run `npm start`.
-      To create a production bundle, use `npm run build`.
-    -->
-    <%- include('./layouts/_header', {basePath: '.'}); %>
-
+    <%- include('./layouts/_l-header', {basePath: '.'}); %>
     <div class="p-home">
-      <h1 class="p-home__headline">Hello World!</h1>
-      <p class="p-home__author">Version: 1.0</p>
-      <p class="p-home__author">Author: Gao Shanghui</p>
+      <section class="l-section">
+        <div class="l-section__content">
+          <h2>Layouts</h2>
+          <hr>
+          <!-- l-flex-two-colums -->
+          <h3>Two columns</h3>
+          <div class="l-flex-two-colums">
+            <div class="l-flex-two-colums__item">
+              <p>ITEM</p> 
+            </div>
+            <div class="l-flex-two-colums__item">
+              <p>ITEM</p> 
+            </div>
+          </div>
+          <!-- l-flex-three-colums -->
+          <h3>Three columns</h3>
+          <div class="l-flex-three-colums">
+            <div class="l-flex-three-colums__item">
+              <p>ITEM</p>
+            </div>
+            <div class="l-flex-three-colums__item">
+              <p>ITEM</p>
+            </div>
+            <div class="l-flex-three-colums__item">
+              <p>ITEM</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="l-section">
+        <div class="l-section__content">
+          <h2>Components</h2>
+          <hr>
+          <!-- Buttons -->
+          <a class="c-button-primary" href="./#">Text Label</a>
+        </div>
+      </section>
     </div>
-
-    <!-- Main JavaScript File -->
+    <%- include('./layouts/_l-footer', {basePath: '.'}) %>
+    <!-- Main Script File -->
     <script src="./js/main.bundle.js"></script>
   </body>
 </html>

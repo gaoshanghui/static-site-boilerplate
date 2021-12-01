@@ -1,0 +1,24 @@
+@use './../abstracts/colors';
+@use './../abstracts/mixins';
+
+.l-section {
+  padding: 120px 0;
+
+  @include mixins.respond(x-small) {
+    padding: 80px 0;
+  }
+
+  &--bg {
+    background: colors.$secondary;
+  }
+
+  &--pt-0 {
+    padding: 0 0 120px;
+  }
+
+  &__content {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+}

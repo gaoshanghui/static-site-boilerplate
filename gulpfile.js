@@ -7,7 +7,7 @@ const del = require('del');
 // Packages for the build html task;
 const ejs = require('gulp-ejs');
 const rename = require('gulp-rename');
-const htmlbeautify = require('gulp-html-beautify');
+const beautify = require('gulp-beautify');
 
 // Packages for the build CSS task
 const gulpSourcemaps = require('gulp-sourcemaps');
@@ -61,15 +61,10 @@ function copyFiles() {
 // Task: build HTML
 // Build HTML file and save it into the build directory.
 function buildHTML() {
-  const htmlbeautifyOptions = {
-    indent_size: 2,
-    indent_char: ' ',
-    eol: '\n',
-  };
   return src([path.ejs, '!./src/**/_*.ejs'])
     .pipe(ejs())
     .pipe(rename({ extname: '.html' }))
-    .pipe(htmlbeautify(htmlbeautifyOptions))
+    .pipe(beautify.html({ indent_size: 2 }))
     .pipe(dest(path.output));
 }
 

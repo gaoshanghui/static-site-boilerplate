@@ -1,6 +1,77 @@
+@use '../abstracts/mixins';
+
 .p-home {
   &__headline {
     font-size: 3rem;
     text-align: center;
+  }
+}
+
+.p-home-hero {
+  width: 100%;
+  height: calc(100vh - 96px);
+  margin: 96px 0 0;
+
+  @include mixins.respond(small) {
+    height: 400px;
+    margin: 72px 0 0;
+  }
+}
+
+.p-home-news {
+  &__archive-link {
+    text-align: right;
+    display: block;
+    margin: 40px 0 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+}
+
+.p-home-shops {
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1040px;
+    margin: 0 auto;
+
+    @include mixins.respond(medium) {
+      max-width: 688px;
+    }
+
+    @include mixins.respond(x-small) {
+      max-width: 368px;
+      padding: 0 16px;
+    }
+  }
+
+  &__shop {
+    margin: 0 12px 48px;
+
+    @include mixins.respond(small) {
+      margin: 0 auto 32px;
+    }
+  }
+}
+
+.p-home-blog-banner {
+  display: flex;
+  flex-direction: column;
+  padding: 56px 0;
+  @include mixins.bgImage('./../assets/images/p-home-blog-banner-bg.jpg');
+
+  &__title {
+    font-size: 2rem;
+    line-height: 1.75;
+    text-align: center;
+    color: #fff;
+
+    @include mixins.respond(x-small) {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__button {
+    margin: 0 auto;
   }
 }

@@ -1,11 +1,11 @@
 {
   "name": "static-site-boilerplate",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Static site boilerplate based on the gulpjs and webpack.",
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development gulp",
-    "build": "cross-env NODE_ENV=production gulp --silent",
+    "build": "cross-env NODE_ENV=production gulp",
     "start": "serve -l 5000 build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,11 +21,12 @@
     "babel-loader": "^8.2.2",
     "browser-sync": "^2.27.4",
     "cross-env": "^7.0.3",
+    "css-loader": "^6.5.1",
     "cssnano": "^5.0.6",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
+    "gulp-beautify": "^3.0.0",
     "gulp-ejs": "^5.1.0",
-    "gulp-html-beautify": "^1.0.1",
     "gulp-postcss": "^9.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.0.0",
@@ -33,6 +34,7 @@
     "postcss": "^8.3.9",
     "sass": "^1.35.1",
     "serve": "^13.0.2",
+    "style-loader": "^3.3.1",
     "webpack": "^5.43.0",
     "webpack-stream": "^7.0.0"
   },
