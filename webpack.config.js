@@ -3,7 +3,6 @@ module.exports = {
   // Only generate source-map in the development mode.
   devtool: process.env.NODE_ENV === 'development' ? 'inline-source-map' : false,
   entry: {
-    // main: './src/js/main.js',
     main: './src/js/main.js',
     // another: './src/js/another.js', If you need multiple entry points.
   },

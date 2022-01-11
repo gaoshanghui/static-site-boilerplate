@@ -1,7 +1,7 @@
 {
   "name": "static-site-boilerplate",
   "version": "1.0.0",
-  "description": "Static site boilerplate based on the gulpjs and webpack.",
+  "description": "A static site boilerplate for modern web development.",
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development gulp",
