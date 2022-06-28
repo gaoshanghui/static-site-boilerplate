@@ -21,7 +21,7 @@ To start a local production server:\
 
 `src/` is the root directory for development.
 
-### HTML
+### HTML/EJS
 
 Create an html file in the root directory or a subdirectory of `src/`.\
 Initially, it comes with a template file called index.ejs.
